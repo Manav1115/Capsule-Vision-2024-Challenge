@@ -1,4 +1,5 @@
 
+This repository contains a PyTorch implementation of a Swin Transformer model for image classification, designed to be trained on a custom dataset organized in specific directories (training and validation with subdirectories for each class). To use this code, clone the repository, install the necessary packages using pip install torch torchvision timm matplotlib seaborn scikit-learn, prepare your dataset according to the specified structure, and run the training script (python swin.py). The model utilizes an Adam optimizer with a learning rate of 0.0001 and implements early stopping to prevent overfitting. Upon completion of training, the model evaluates performance by generating training and validation loss plots, validation accuracy plots, a classification report (including precision, recall, and F1-score), and a confusion matrix visualized using Seaborn. Contributions are welcome, and the project is licensed under the MIT License.
 
 
 ![ChallengeHeader](https://github.com/user-attachments/assets/e75f510b-02a8-4fec-b133-11f4ab6c828d)
@@ -57,8 +58,6 @@ Dataset/
     ├── Ulcer
     └── Worms
     └── validation_data.xlsx
-
-This repository contains a PyTorch implementation of a Swin Transformer model for image classification, designed to be trained on a custom dataset organized in specific directories (training and validation with subdirectories for each class). To use this code, clone the repository, install the necessary packages using pip install torch torchvision timm matplotlib seaborn scikit-learn, prepare your dataset according to the specified structure, and run the training script (python swin.py). The model utilizes an Adam optimizer with a learning rate of 0.0001 and implements early stopping to prevent overfitting. Upon completion of training, the model evaluates performance by generating training and validation loss plots, validation accuracy plots, a classification report (including precision, recall, and F1-score), and a confusion matrix visualized using Seaborn. Contributions are welcome, and the project is licensed under the MIT License.
 
 
 
