@@ -1,39 +1,16 @@
+
+This repository contains a PyTorch implementation of a Swin Transformer model for image classification, designed to be trained on a custom dataset organized in specific directories (training and validation with subdirectories for each class). To use this code, clone the repository, install the necessary packages using pip install torch torchvision timm matplotlib seaborn scikit-learn, prepare your dataset according to the specified structure, and run the training script (python swin.py). The model utilizes an Adam optimizer with a learning rate of 0.0001 and implements early stopping to prevent overfitting. Upon completion of training, the model evaluates performance by generating training and validation loss plots, validation accuracy plots, a classification report (including precision, recall, and F1-score), and a confusion matrix visualized using Seaborn. Contributions are welcome, and the project is licensed under the MIT License.
+
+
 ![ChallengeHeader](https://github.com/user-attachments/assets/e75f510b-02a8-4fec-b133-11f4ab6c828d)
 # Capsule Vision Challenge 2024: Multi-Class Abnormality Classification for Video Capsule Endoscopy
-- [Registration form](https://forms.gle/QemRirWysnGoGrKM6)
-- [Challenge Hosting Website](https://misahub.in/cv2024.html)
+
 - [Challenge ArXiv](https://arxiv.org/abs/2408.04940)
 - [Challenge github repository](https://github.com/misahub2023/Capsule-Vision-2024-Challenge)
 - [Training and Validation Dataset Link](https://figshare.com/articles/dataset/Training_and_Validation_Dataset_of_Capsule_Vision_2024_Challenge/26403469?file=48018562)
 - [Testing Dataset Link](https://figshare.com/articles/dataset/Testing_Dataset_of_Capsule_Vision_2024_Challenge/27200664?file=49717386)
 - [Sample Report Overleaf](https://www.overleaf.com/read/kwhvpznnbzwb#26d62a)
-## Table of Content
-- [Challenge Overview](#challenge-overview)
-- [Challenge Timeline](#challenge-timeline)
-- [Dataset](#dataset)
-  - [Dataset Structure](#dataset-structure)
-- [Sample Scripts for Participants](#sample-scripts-for-participants)
-  - [Data_loader Script](#data_loader)
-  - [Eval_metrics_gen_excel](#eval_metrics_gen_excel)
-  - [Evaluate_model](#evaluate_model)
-- [Sample Evaluation by Organizing members](#sample-evaluation-by-organizing-members)
-- [Submission Format](#submission-format)
-- [Contributions](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/edit/main/README.md#contributions)
-## Challenge Overview
-The aim of the challenge is to provide an opportunity
-for the development, testing and evaluation of AI models
-for automatic classification of abnormalities captured in
-VCE video frames. It promotes the development of vendor-independent and
-generalized AI-based models for automatic abnormality
-classification pipeline with 10 class labels namely angioectasia, bleeding, erosion, erythema, foreign body,
-lymphangiectasia, polyp, ulcer, worms, and normal.
-## Challenge Timeline
-- **Launch of challenge:** August 15, 2024
-- **Registration:** August 15, 2024 - October 10, 2024
-- **Release of Training Data:** August 15, 2024
-- **Release of Test Data and Result submission:** October 11, 2024 - October 25, 2024
-- **Result analysis by the organizing team:** October 26, 2024 - November 24, 2024
-- **Announcement of results for all teams:** November 25, 2024
+
 ## Dataset 
 The training and validation dataset has been developed using
 three publicly available (SEE-AI project dataset, KID,
@@ -140,84 +117,6 @@ pip install numpy pandas scikit-learn
 ### Evaluate_model
 The [Evaluate_model.py](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/blob/main/sample_codes_for_participants/Evaluate_model.py) script is a sample script which shows the usage of the functions from the [Eval_metrics_gen_excel.py](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/blob/main/sample_codes_for_participants/Eval_metrics_gen_excel.py) script. A VGG16 model has been evaluated in this script, participants can take inspiration from this for their own submissions.
 
-The sample script that shows the metrics and creates the prediction excel file can be called via
-```bash
-python sample_codes_for_participants/Evaluate_model.py
-```
-
-## Sample Evaluation by organizing members
-
-This directory contains extensive analysis of the dataset along with the evaluation of Custom CNN, Support vector machines, ResNet50 and VGG16 on the training and the validation data.
-
-## Submission Format
-
-Each team is required to submit their results in an EMAIL with the following structure to ask.misahub@gmail.com
-- The email should contain:
-  - Challenge name and Team name as the **SUBJECT
-LINE**.
-  - Team member names and affiliation in the **BODY
-OF THE EMAIL**.
-  - Contact number and email address in the **BODY
-OF THE EMAIL**.
-    A link of the github repository in public mode in
-the **BODY OF THE EMAIL**.
-  - A link of their report on any open preprint server of
-their choice (ArXiv, Authorea, BioRxiv, Figshare
-etc) in the **BODY OF THE EMAIL**. The report should be in the latex format given [here](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/blob/main/Sample_report_format/Sample%20report%20for%20submission.zip).
-  - Generated excel sheet (in xlsx format) as an attachment.
-    The excel sheet should be in the same format as [this](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/blob/main/sample%20evaluation%20by%20organizing%20members/VGG16/validation_excel.xlsx) for the test data and can be generated from the [Eval_metrics_gen_excel.py](https://github.com/misahub2023/Capsule-Vision-2024-Challenge-/blob/main/sample_codes_for_participants/Eval_metrics_gen_excel.py) script. Any other format will **NOT** be accepted and will lead to disqualification.
-- The github repository in public mode should contain the
-following:
-  - Developed code for training, validation, and testing
-in .py / .mat etc in readable format with comments.
-  - Stored model, associated weights or files (optional).
-  - Any utils or assets or config. or checkpoints.
-
-The submitted excel files will be evaluated using a semi-automated script to generate the relevant metrics against the true labels on the basis of which the participants will be ranked.
-
-Following checklist will be used to select the top three
-winning teams:
-- Best evaluation metrics (especially mean AUC) on
-testing dataset.
-- In case of ties:
-  * Model uniqueness and reproducibility.
-  * Readability of the submitted report and github
-repository.
-  * Unique methods of handling class-imbalance
-problems in the datasets.
-
-## Citation
-Please using the following citations for citing our work.
-
-- Challenge ArXiv
-  
-@article{handa2024capsule,
-  title={Capsule Vision 2024 Challenge: Multi-Class Abnormality Classification for Video Capsule Endoscopy},
-  author={Handa, Palak and Mahbod, Amirreza and Schwarzhans, Florian and Woitek, Ramona and Goel, Nidhi and Chhabra, Deepti and Jha, Shreshtha and Dhir, Manas and Gunjan, Deepak and Kakarla, Jagadeesh and others},
-  journal={arXiv preprint arXiv:2408.04940},
-  year={2024}}
-  
-- Training and Validation Datasets
-  
-@article{Handa2024,
-author = "Palak Handa and Amirreza Mahbod and Florian Schwarzhans and Ramona Woitek and Nidhi Goel and Deepti Chhabra and Shreshtha Jha and Manas Dhir and Deepak Gunjan and Jagadeesh Kakarla and Balasubramanian Raman",
-title = "{Training and Validation Dataset of Capsule Vision 2024 Challenge}",
-year = "2024",
-month = "7",
-url = "https://figshare.com/articles/dataset/Training_and_Validation_Dataset_of_Capsule_Vision_2024_Challenge/26403469",
-doi = "10.6084/m9.figshare.26403469.v1",
-journal={Fishare}}
-
-- Testing Datasets
-  
-@article{Handa2024,
-author = "Palak Handa and Amirreza Mahbod and Florian Schwarzhans and Ramona Woitek and Nidhi Goel and Deepti Chhabra and Shreshtha Jha and Manas Dhir and Pallavi Sharma and Dr. Deepak Gunjan and Jagadeesh Kakarla and Balasubramanian Ramanathan",
-title = "{Testing Dataset of Capsule Vision 2024 Challenge}",
-year = "2024",
-month = "10",
-url = "https://figshare.com/articles/dataset/Testing_Dataset_of_Capsule_Vision_2024_Challenge/27200664",
-doi = "10.6084/m9.figshare.27200664.v1"
-}
 
 
 
