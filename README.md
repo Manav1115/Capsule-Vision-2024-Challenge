@@ -59,3 +59,74 @@ Dataset/
     └── validation_data.xlsx
 ```
 
+This project uses a Swin Transformer model for multi-class classification of medical images into categories such as Angioectasia, Bleeding, Erosion, and more. The model is trained, validated, and tested on images, and predictions are saved to CSV files for further analysis.
+
+### Project Structure
+train_data_dir: Directory containing training images.
+val_data_dir: Directory containing validation images.
+test_data_dir: Directory containing test images for final evaluation.
+swin_model.pth: Saved model weights with the best validation accuracy.
+train_predictions.csv: CSV file with predictions on training data.
+val_predictions.csv: CSV file with predictions on validation data.
+test_predictions.csv: CSV file with predictions on test data.
+
+### Requirements
+To run the project, you need to install the following Python libraries:
+
+torch
+timm
+torchvision
+Pillow
+pandas
+numpy
+You can install these requirements using:
+```bash
+pip install torch torchvision timm Pillow pandas numpy
+```
+
+### Dataset
+Place the images into the following directories:
+
+train_data_dir: Directory with training images.
+val_data_dir: Directory with validation images.
+test_data_dir: Directory with test images.
+The class labels are:
+```bash
+['Angioectasia', 'Bleeding', 'Erosion', 'Erythema', 'Foreign Body',  'Lymphangiectasia', 'Normal', 'Polyp', 'Ulcer', 'Worms']
+```
+
+### Training and Validation
+Data Preparation:
+
+Images are resized to (224, 224), normalized, and augmented with random horizontal flips for training.
+Validation data is resized and normalized without augmentation.
+Model Architecture:
+
+Uses Swin Transformer (from timm library) with num_classes set to the number of classes.
+Training:
+
+The model is trained for 10 epochs, with the best model saved as best_swin_model.pth based on validation accuracy.
+
+### Testing and Saving Predictions
+The script provides functions for loading the best model and making predictions on any dataset (training, validation, or test). Predictions are saved in the following format in CSV files:
+
+image_path: Path to the image.
+Columns for each class label representing predicted probabilities.
+predicted_class: The predicted class label.
+
+### Usage
+Training: Run the script to train the model. This will automatically save the model with the best validation accuracy.
+
+Generate Predictions: Predictions are generated for:
+
+Training data: Saved to train_predictions.csv.
+Validation data: Saved to val_predictions.csv.
+Test data: Saved to test_predictions.csv.
+Saving Predictions: Call the save_predictions_to_csv function, providing the model, dataloader, output CSV file name, and device.
+
+Example:
+```bash
+save_predictions_to_csv(swin_model, test_loader, 'test_predictions.csv', device)
+```
+
+
